@@ -1,6 +1,6 @@
 # My-LeetCode-Solved-Problems
 - This repo contains my solutions to LeetCode problems.
-- Solutions are available in different languages such as:
+- Some solutions are available in different languages such as:
   C++, 
   JavaScript, 
   Python3, 

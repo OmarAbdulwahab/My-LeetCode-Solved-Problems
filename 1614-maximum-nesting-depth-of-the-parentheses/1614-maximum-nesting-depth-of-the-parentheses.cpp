@@ -7,8 +7,7 @@ public:
             if(s[i]=='(')st.push(s[i]);
             else if(s[i]==')'){
                 if(st.size()>ans)ans=st.size();
-                //while(!st.empty())
-                    st.pop();
+                st.pop();
             }
         }
         

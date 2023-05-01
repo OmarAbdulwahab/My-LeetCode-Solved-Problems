@@ -1,16 +1,10 @@
 class Solution {
 public:
     double average(vector<int>& salary) {
-        int mn=INT_MAX,mx=INT_MIN;
-        for(auto it:salary){
-            mn=min(mn,it);
-            mx=max(mx,it);
-        }
+        sort(salary.begin(),salary.end());
         double sum=0;
-        for(auto it:salary){
-            if(it!=mn and it!=mx)
-                sum+=it;
-        }
+        for(int i=1;i<salary.size()-1;i++)
+                sum+=salary[i];
         
     if(salary.size()==3)return sum;
      

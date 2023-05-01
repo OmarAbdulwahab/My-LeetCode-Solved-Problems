@@ -6,7 +6,7 @@ public:
         for(int i=1;i<salary.size()-1;i++)
                 sum+=salary[i];
         
-    if(salary.size()==3)return sum;
+        if(salary.size()==3)return sum;
      
         return sum/(salary.size()-2);
     }

@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //Original Solution: O(n log n)
+    
 
 bool check(int n, int i, int maxSum, int m) {
     for (int d = 1; maxSum >= 0 && d < m && i + d < n; ++d)

@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //Optimized Solution: O(log n)
+    ///Optimized Solution: O(log n)
 
 int maxValue(int n, int i, int maxSum) {
     int l = 0, r = maxSum, j = n - i - 1;

@@ -1,17 +1,23 @@
 class Solution {
 public:
-    // Optimized Solution: O(log n)
-    int maxValue(int n, int i, int maxSum) {
-        int l = 0, r = maxSum, j = n - i - 1;
+    //Original Solution: O(n log n)
+
+bool check(int n, int i, int maxSum, int m) {
+    for (int d = 1; maxSum >= 0 && d < m && i + d < n; ++d)
+        maxSum -= m - d;
+    for (int d = 1; maxSum >= 0 && d < m && i - d >= 0; ++d)
+        maxSum -= m - d;
+    return maxSum >= 0;
+}
+int maxValue(int n, int index, int maxSum) {
+    int l = 0, r = maxSum;
     while (l < r) {
-        long m = (l + r + 1) / 2;
-        auto need = m * m - ((m > i ? (m - i - 1) * (m - i) : 0)
-            + (m > j ? (m - j - 1) * (m - j) : 0)) / 2;
-        if (need <= maxSum - n)
+        int m = (l + r + 1) / 2;
+        if (check(n, index, maxSum - n - m, m))
             l = m;
         else
             r = m - 1;
     }
     return l + 1;
-    }
+}
 };

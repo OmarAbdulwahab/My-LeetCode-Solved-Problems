@@ -15,7 +15,7 @@ public:
                 it->second++;
         }
         
-        for(auto row:grid)
+        for(auto &row:grid)
             ans+=mp[row];
         
         return ans;

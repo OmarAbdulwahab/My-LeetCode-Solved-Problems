@@ -10,31 +10,19 @@ public:
         for(auto it:mp){
             int n=it.second.size();
             int indx=0;
-            // if(it.first<n){
-                // vector<vector<int>>tmp;
-                vector<int>tmp;
-                int m = 0;
-                while(indx<n){
-                    if(m==it.first){
-                        m=0;
-                        ans.push_back(tmp);
-                        tmp.clear();
-                    }
-                    tmp.push_back(it.second[indx]);
-                    indx++;
-                    m++;
+            vector<int>tmp;
+            int m = 0;
+            while(indx<n){
+                if(m==it.first){
+                    m=0;
+                    ans.push_back(tmp);
+                    tmp.clear();
                 }
+                tmp.push_back(it.second[indx]);
+                indx++;
+                m++;
+            }
             if(tmp.size())ans.push_back(tmp);
-                // ans.push_back(tmp);
-            // }
-            /*else{
-                vector<int>tmp;
-                while(indx<n){
-                    tmp.push_back(it.second[indx]);
-                    indx++;
-                }
-                ans.push_back(tmp);
-            }*/
         }
         
         return ans;

@@ -1,17 +1,19 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        l, r = 1, max(piles)
-        res = r
-
-        while l <= r:
-            k = (l + r) // 2
-
-            totalTime = 0
+        l,r = 1,max(piles)
+        ans = r
+        
+        while l<=r :
+            k = (l+r)//2
+            hours = 0
             for p in piles:
-                totalTime += math.ceil(p / k)
-            if totalTime <= h:
-                res = k
-                r = k - 1
+                hours += math.ceil(p / k)
+            if hours<=h:
+                ans = min(ans,k)
+                r = k-1
             else:
-                l = k + 1
-        return res
+                l = k+1
+        
+        return ans
+    
+   

@@ -4,7 +4,7 @@ public:
         unordered_set<char>st;
         int i=0,j=0,n=s.size(),ans=0;
         while(i<n and j<n){
-            if(st.find(s[j])==st.end())//If the character does not in the set
+            if(st.find(s[j])==st.end())//If the character is not in the set
             {
                 st.insert(s[j++]);//Insert the character in set and update the j counter
                 ans=max(ans,j-i);//Check if the new distance is longer than the current answer

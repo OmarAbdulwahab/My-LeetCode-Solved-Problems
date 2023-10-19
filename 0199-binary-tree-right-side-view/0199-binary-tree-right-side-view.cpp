@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    // DFS: just add the last element of the level to the ans
     vector<int> rightSideView(TreeNode* root) {
         vector<int>ans;
         rightTraversal(root,ans,0);

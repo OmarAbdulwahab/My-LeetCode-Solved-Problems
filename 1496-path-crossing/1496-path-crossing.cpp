@@ -30,13 +30,5 @@ public:
         
         return false;
     }
-private:
-//     pair<int,int> newPoint(char ch){
-//         if(ch=='N') j++;
-//         else if(ch=='S') j--;
-//         else if(ch=='E')i++;
-//         else i--;
-        
-//         return {i,j};
-//     }
+
 };

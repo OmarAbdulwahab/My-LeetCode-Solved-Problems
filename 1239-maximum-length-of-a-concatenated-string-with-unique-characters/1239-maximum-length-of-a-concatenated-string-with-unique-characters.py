@@ -1,10 +1,17 @@
 class Solution:
+    # neetcode
     def maxLength(self, arr: List[str]) -> int:
         charSet = set()
         
         def overlap(charSet, s):
-            c = Counter(charSet) + Counter(s)
-            return max(c.values())>1
+            # c = Counter(charSet) + Counter(s)
+            # return max(c.values())>1
+            prev = set()
+            for c in s:
+                if c in charSet or c in prev:
+                    return True
+                prev.add(c)
+            return False
         
         
         def backtrack(i):

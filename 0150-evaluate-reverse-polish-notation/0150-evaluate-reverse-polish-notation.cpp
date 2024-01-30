@@ -14,7 +14,7 @@ public:
             int tmp2=st.top();
             st.pop();
             
-            int newEl = el=="+"?tmp+tmp2: el=="-"?tmp2-tmp: el=="*"?tmp*tmp2: tmp2/tmp;
+            int newEl = el == "+" ? tmp+tmp2 : el == "-" ? tmp2-tmp: el == "*" ? tmp*tmp2 : tmp2/tmp;
             st.push(newEl);
         }
         

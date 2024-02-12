@@ -2,10 +2,14 @@ class Solution {
 public:
     int majorityElement(vector<int>& nums) {
         map<int,int>mp;
-        for(auto num:nums)mp[num]++;
+        int half = nums.size() / 2;
+        for(auto num:nums){
+            mp[num]++;
+            if(mp[num] > half) return num;
+        }
         
         for(auto it:mp){
-            if(it.second > nums.size()/2)
+            if(it.second > half)
                 return it.first;
         }
         

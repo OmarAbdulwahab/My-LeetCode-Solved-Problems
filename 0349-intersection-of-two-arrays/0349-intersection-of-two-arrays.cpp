@@ -16,7 +16,6 @@ public:
                 if(st1.find(it)!=st1.end())ans.push_back(it);
             }
         }
-        
         return ans;
     }
 };

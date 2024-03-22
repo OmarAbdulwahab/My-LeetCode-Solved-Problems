@@ -11,19 +11,30 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        vector<int>v;
-        // if(head->next == NULL)return true;
-        while(head){
-            v.push_back(head->val);
-            
-            head = head->next;
+        ListNode* fast = head, *slow = head;
+        // finding middle (slow)
+        while(fast and fast->next){
+            fast = fast->next->next;
+            slow = slow->next;
         }
         
-        int l=0, r=v.size()-1;
-        while(l<=r){
-            if(v[l++] != v[r--])return false;
+        // reversing the second half
+        ListNode* prev = NULL;
+        while(slow){
+            ListNode* tmp = slow->next;
+            slow->next =  prev;
+            prev = slow;
+            slow = tmp;
         }
         
-        return true;;
+        // check palindrome
+        ListNode* left = head, *right = prev;
+        while(right){
+            if(left->val != right->val)return false;
+            left = left->next;
+            right = right->next;
+        }
+        
+        return true;
     }
 };

@@ -1,10 +1,14 @@
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
-        map<int,int>mp;
-        vector<int>ans;
-        for(auto it:nums)mp[it]++;
-        for(auto it:mp)if(it.second>1)ans.push_back(it.first);
+        // neetcode: now let's solve it using time:O(n) and space:O(1);
+        vector<int> ans;
+        for(int i=0;i<nums.size();i++){
+            int indx = abs(nums[i])-1;
+            if(nums[indx]<0)ans.push_back(indx+1);
+            else nums[indx]*=-1;
+        }
+        
         return ans;
     }
 };

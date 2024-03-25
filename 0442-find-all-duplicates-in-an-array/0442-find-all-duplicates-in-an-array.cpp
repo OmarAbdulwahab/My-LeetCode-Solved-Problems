@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
+        // I solve it using map (it passed) but we need to do it with O(1) space
         // neetcode: now let's solve it using time:O(n) and space:O(1);
         vector<int> ans;
         for(int i=0;i<nums.size();i++){

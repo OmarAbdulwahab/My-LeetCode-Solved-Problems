@@ -3,12 +3,16 @@ public:
     int minOperations(vector<int>& nums, int k) {
         int x = 0;
         for(int c:nums)
-            x ^= c;
+            x ^= c; // get the output of XORing all elements of the array
         
+        x ^= k; // XORing the output with k
+            
         int count = 0;
-        for(int i=0; i<22; i++){
-            if( ((x & (1<<i)) > 0) != ((k & (1<<i)) > 0))
-                count++;
+        
+        // now if there is a difference(bit == 1) so, we neet to change this bit to make the output equal to k , because if the output was equal to k so we need to change nothing
+        while(x>0){
+            count += x%2;
+            x/=2;
         }
         
         return count;

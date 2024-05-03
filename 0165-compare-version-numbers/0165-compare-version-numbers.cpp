@@ -16,26 +16,8 @@ public:
         }
         
         return 0;
-        
-        
-        int i=0;
-        while(i<ver1.size() or i<ver1.size()){
-            if(ver1[i]<ver2[i])return -1;
-            else if(ver1[i]>ver2[i])return 1;
-            
-            i++;
-        }
-        int j=i;
-        while(i<ver1.size()){
-            if(ver1[i++]>0)return 1;
-        }
-        
-        while(j<ver2.size()){
-            if(ver2[j++]>0)return -1;
-        }
-        
-        return 0;
     }
+    
 private:
     vector<int> convert(string str){
         vector<int> res;
@@ -48,10 +30,9 @@ private:
                 res.push_back(num);
             }else tmp.push_back(c);
         }
-        // if(tmp!=""){
-            int numr = stoi(tmp);
-            res.push_back(numr);
-        // }
+        
+        int num = stoi(tmp);
+        res.push_back(num);
         return res;
     }
 };

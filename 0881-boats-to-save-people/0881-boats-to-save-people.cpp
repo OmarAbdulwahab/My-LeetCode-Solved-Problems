@@ -18,27 +18,5 @@ public:
         }
         
         return ans;
-//         for(int i=0; i<people.size()-1; i++){
-//             cur = people[i];
-//             int left = i+1;
-//             while(left<people.size() and cur+people[left]<=limit and people[left]!=0){
-//                 cur+= people[left];
-//                 people[left] = 0;
-//                 left++;
-//             }
-//             ans++;
-            
-//             // if(cur+people[i]>=limit){
-//             //     ans++;
-//             //     cur = (cur+people[i]==limit)?0:people[i];
-//             // }
-//             // else{
-//             //     cur+=people[i];
-//             // }
-//         }
-        
-        // if(cur!=0)ans++;
-        
-        return ans;
     }
 };

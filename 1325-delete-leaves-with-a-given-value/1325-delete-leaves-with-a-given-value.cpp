@@ -15,20 +15,18 @@ public:
         // PostOrder traversal DFS
         // Time: O(n), Space: O(n)
         return traverse(root, target);
-        // return root;
     }
     
     TreeNode* traverse(TreeNode* node, int target){
         if(node==NULL)return NULL;
         
-        // if(node->left!=NULL)
         node->left = traverse(node->left, target);
-        // if(node->right!=NULL)
         node->right = traverse(node->right, target);
         
         if(node->left==NULL and node->right==NULL and node->val==target){
             return NULL;
         }
+        
         return node;
     }
 };

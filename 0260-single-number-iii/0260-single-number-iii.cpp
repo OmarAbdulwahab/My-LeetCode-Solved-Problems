@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
+        // neetcode
+        // Time: O(n), space: O(1)
         if(nums.size()==2)return nums;
         int Xor = 0;
         for(int num:nums)Xor^= num;

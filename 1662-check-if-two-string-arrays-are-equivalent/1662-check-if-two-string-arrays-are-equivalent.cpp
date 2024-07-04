@@ -12,9 +12,7 @@ public:
             for(int j=0; j<word2[i].size(); j++)
                 w2 += word2[i][j];
         
-        for(int i=0; i<w1.size();i++)
-            if(w1[i]!=w2[i])return false;
         
-        return w1.size()==w2.size();
+        return w1==w2;
     }
 };

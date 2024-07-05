@@ -15,10 +15,11 @@ public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
         traverse(head);
         int n = indxs.size();
-        int mn = INT_MAX;
         if(n <= 1)return {-1,-1};
+        
+        int mn = INT_MAX;
         int mx = indxs[n-1] - indxs[0];
-        for(int j=0;j<n;j++)cout<<indxs[j]<<" ";
+        
         for(int j=0; j<n-1; j++)
             mn = min(mn, indxs[j+1]-indxs[j]);
         

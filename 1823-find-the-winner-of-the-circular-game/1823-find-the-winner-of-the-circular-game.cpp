@@ -1,6 +1,8 @@
 class Solution {
 public:
     int findTheWinner(int n, int k) {
+        // time: O(n*k)
+        // space: O(n) 
         queue<int>q;
         for(int i=1; i<=n; i++)q.push(i);
         

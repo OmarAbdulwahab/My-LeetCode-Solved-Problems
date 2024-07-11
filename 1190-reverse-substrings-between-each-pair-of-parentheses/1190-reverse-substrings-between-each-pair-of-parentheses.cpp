@@ -10,9 +10,7 @@ public:
                     stk.pop();
                 }
                 stk.pop();
-                // if(stk.empty())return ans(v);
                 for(auto it:v)stk.push(it);
-                // v.clear();
             }
             else{
                 stk.push(c);

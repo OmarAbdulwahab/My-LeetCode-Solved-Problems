@@ -7,7 +7,7 @@
 class Solution:
     def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
         nodes = {}
-        children = []
+        children = set()
         for parent, child, is_left in descriptions:
             
             if parent not in nodes:
@@ -20,7 +20,7 @@ class Solution:
             else:
                 nodes[parent].right = nodes[child]
                 
-            children.append(child)
+            children.add(child)
             
         for parent, _, _ in descriptions:
             if parent not in children:

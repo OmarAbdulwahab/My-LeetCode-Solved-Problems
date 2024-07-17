@@ -9,11 +9,10 @@
  * };
  */
 class Solution {
-public:
-    // neetcode
+public://neetcode
     void reorderList(ListNode* head) {
-        // find middle
-        ListNode* slow=head, *fast=head->next;
+        // find the middle
+        ListNode* slow=head, *fast=head;
         while(fast and fast->next){
             slow = slow->next;
             fast = fast->next->next;
@@ -27,10 +26,8 @@ public:
             prev = second;
             second = tmp;
         }
-        
         // merge the two lists
-        ListNode* firstptr = head;
-        ListNode* secondptr = prev;
+        ListNode* firstptr = head, *secondptr = prev;
         while(secondptr){
             ListNode* tmp1 = firstptr->next, *tmp2 = secondptr->next;
             firstptr->next = secondptr;

@@ -14,26 +14,16 @@ public:
         ListNode* newHead = new ListNode(0);
         ListNode* dummy = newHead;
         while(list1 and list2){
-            while(list1 and list2 and list1->val < list2->val){
-                dummy->next = new ListNode(list1->val, NULL);
-                dummy = dummy->next;
+            if(list1->val < list2->val){
+                dummy->next = list1;
                 list1 = list1->next;
-            }
-            while(list1 and list2 and list1->val > list2->val){
-                dummy->next = new ListNode(list2->val, NULL);
                 dummy = dummy->next;
+            }else{
+                dummy->next = list2;
                 list2 = list2->next;
-            }
-            while(list1 and list2 and list1->val == list2->val){
-                dummy->next = new ListNode(list1->val, NULL);
                 dummy = dummy->next;
-                dummy->next = new ListNode(list2->val, NULL);
-                dummy = dummy->next;
-                list1 = list1->next;
-                list2 = list2->next;
             }
         }
-        
         while(list1){
             dummy->next = new ListNode(list1->val, NULL);
             dummy = dummy->next;

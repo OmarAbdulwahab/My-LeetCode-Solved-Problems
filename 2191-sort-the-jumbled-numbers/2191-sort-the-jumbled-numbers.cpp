@@ -9,11 +9,8 @@ public:
         sort(v.begin(), v.end());
         
         vector<int>ans;
-        for(int i=0; i<v.size(); i++){
+        for(int i=0; i<v.size(); i++)
             ans.push_back(nums[v[i].second]);
-            cout<<nums[v[i].second]<<'-'<<v[i].first<<'-'<<v[i].second<<' ';
-        }
-        cout<<endl;
         
         return ans;
     }

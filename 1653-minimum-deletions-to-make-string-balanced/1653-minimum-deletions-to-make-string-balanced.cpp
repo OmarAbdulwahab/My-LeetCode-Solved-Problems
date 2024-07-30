@@ -1,16 +1,20 @@
 class Solution {
-public:
+public:// neetcode amazing solution
     int minimumDeletions(string s) {
-        int cost = 0, cnt_b = 0;
+        int a_count_right=0;
+        for(char c:s)
+            a_count_right += c=='a';
+        
+        int b_count_left = 0;
+        int ans = INT_MAX;
         for(char c:s){
-            if(c=='a' and cnt_b>0){
-                cnt_b--;
-                cost++;
-            }else if(c=='b'){
-                cnt_b++;
-            }
+            if(c=='a') a_count_right --;
+            
+            ans = min(ans, a_count_right + b_count_left);
+            
+            if(c=='b') b_count_left ++;
         }
         
-        return cost;
+        return ans;
     }
 };

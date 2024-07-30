@@ -1,5 +1,5 @@
 class Solution {
-public:// neetcode amazing solution
+public:
     int minimumDeletions(string s) {
         int cost = 0, cnt_b = 0;
         for(char c:s){

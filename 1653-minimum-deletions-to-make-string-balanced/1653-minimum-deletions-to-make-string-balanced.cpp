@@ -1,17 +1,16 @@
 class Solution {
 public:// neetcode amazing solution
     int minimumDeletions(string s) {
-        vector<int> a_count_right(s.length(),0);//pre-prossesing
-        for(int i=s.size()-2; i>=0; i--)
-            a_count_right[i] += (a_count_right[i+1] + (s[i+1]=='a'));
-        
-        int b_count = 0;
-        int ans = INT_MAX;
-        for(int i=0; i<s.size(); i++){
-            ans = min(ans, a_count_right[i] + b_count);
-            b_count+= s[i]=='b';
+        int cost = 0, cnt_b = 0;
+        for(char c:s){
+            if(c=='a' and cnt_b>0){
+                cnt_b--;
+                cost++;
+            }else if(c=='b'){
+                cnt_b++;
+            }
         }
         
-        return ans;
+        return cost;
     }
 };

@@ -1,7 +1,7 @@
 class Solution {
 public:
     string numberToWords(int num) {
-      vector<pair<int, string>> nums =
+        vector<pair<int, string>> nums =
             {
                 {1000000000, "Billion"}, {1000000, "Million"}, {1000, "Thousand"}, {100, "Hundred"},
                 {90, "Ninety"},{80, "Eighty"},{70, "Seventy"},{60, "Sixty"}, 

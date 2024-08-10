@@ -2,10 +2,10 @@ class Solution {
 public:
     int numMagicSquaresInside(vector<vector<int>>& grid) {
         int ans = 0;
-        int m = grid.size();
-        int n = grid[0].size();
-        for (int row = 0; row + 2 < m; row++) {
-            for (int col = 0; col + 2 < n; col++) {
+        int n = grid.size();
+        int m = grid[0].size();
+        for (int row = 0; row < n-2; row++) {
+            for (int col = 0; col < m-2; col++) {
                 if (isMagicSquare(grid, row, col)) {
                     ans++;
                 }
@@ -16,46 +16,33 @@ public:
 
 private:
     bool isMagicSquare(vector<vector<int>>& grid, int row, int col) {
-        bool seen[10] = {false};
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                int num = grid[row + i][col + j];
-                if (num < 1 || num > 9) return false;
-                if (seen[num]) return false;
-                seen[num] = true;
+        // Ensure 1 - 9
+        set<int> values;
+        for(int i=row; i<row+3; i++){
+            for(int j=col; j<col+3; j++){
+                if(values.find(grid[i][j])!= values.end() or grid[i][j]<1 or grid[i][j]>9)
+                    return false;
+                values.insert(grid[i][j]);
             }
         }
-
-        // Check if diagonal sums are the same
-        int diagonal1 =
-            grid[row][col] + grid[row + 1][col + 1] + grid[row + 2][col + 2];
-        int diagonal2 =
-            grid[row + 2][col] + grid[row + 1][col + 1] + grid[row][col + 2];
-
-        if (diagonal1 != diagonal2) return false;
-
-        // Check if all row sums are the same as the diagonal sums
-        int row1 = grid[row][col] + grid[row][col + 1] + grid[row][col + 2];
-        int row2 = grid[row + 1][col] + grid[row + 1][col + 1] +
-                   grid[row + 1][col + 2];
-        int row3 = grid[row + 2][col] + grid[row + 2][col + 1] +
-                   grid[row + 2][col + 2];
-
-        if (!(row1 == diagonal1 && row2 == diagonal1 && row3 == diagonal1)) {
-            return false;
+        // rows
+        for(int i=row; i<row+3; i++){
+            int row_sum = grid[i][col] + grid[i][col+1] + grid[i][col+2];
+            if(row_sum != 15)
+                return false;
         }
-
-        // Check if all column sums are the same as the diagonal sums
-        int col1 = grid[row][col] + grid[row + 1][col] + grid[row + 2][col];
-        int col2 = grid[row][col + 1] + grid[row + 1][col + 1] +
-                   grid[row + 2][col + 1];
-        int col3 = grid[row][col + 2] + grid[row + 1][col + 2] +
-                   grid[row + 2][col + 2];
-
-        if (!(col1 == diagonal1 && col2 == diagonal1 && col3 == diagonal1)) {
-            return false;
+        // cols
+        for(int i=col; i<col+3; i++){
+            int col_sum = grid[row][i] + grid[row+1][i] + grid[row+2][i];
+            if(col_sum != 15)
+                return false;
         }
-
+        // diagonals
+        int d1_sum = grid[row][col] + grid[row+1][col+1] + grid[row+2][col+2];
+        int d2_sum = grid[row][col+2] + grid[row+1][col+1] + grid[row+2][col];
+        if((d1_sum != 15) or (d2_sum != 15)) return false;
+        
+        // all is ok: it is a magic square
         return true;
     }
 };

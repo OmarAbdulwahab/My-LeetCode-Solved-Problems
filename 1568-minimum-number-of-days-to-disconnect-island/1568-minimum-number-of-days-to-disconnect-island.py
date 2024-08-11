@@ -12,32 +12,28 @@ class Solution:
                 dfs(nr, nc, visit)
             
         
-        visit = set()
-        count = 0
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] and (r,c) not in visit:
-                    dfs(r,c, visit)
-                    count += 1
-                    
-        if count != 1:
-            return 0
-        
-        land = list(visit)
-        
-        for r, c in land:
-            grid[r][c] = 0
-            
+        def count_islands():
             visit = set()
             count = 0
-            for r2 in range(rows):
-                for c2 in range(cols):
-                    if grid[r2][c2] and (r2,c2) not in visit:
-                        dfs(r2,c2, visit)
+            for r in range(rows):
+                for c in range(cols):
+                    if grid[r][c] and (r,c) not in visit:
+                        dfs(r,c, visit)
                         count += 1
-            if count != 1:
-                return 1
-            grid[r][c] = 1
+            return count
+                        
+        if count_islands() != 1:
+            return 0
+        
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c]==0:
+                    continue
+                grid[r][c] = 0
+
+                if count_islands() != 1:
+                    return 1
+                grid[r][c] = 1
         
         
         return 2

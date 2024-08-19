@@ -1,26 +1,12 @@
 class Solution:
     def minSteps(self, n: int) -> int:
-        # time: O{n^2}, space: O{n^2}
-        cache = {}
-        def helper(count, paste):
-            if count == n:
-                return 0
-            if count > n:
-                return 1000
-            if (count, paste) in cache:
-                return cache[(count, paste)]
-            
-            
-            # Paste
-            res1 = 1 + helper(count + paste, paste)
-            
-            # Copy & Paste
-            res2 = 2 + helper(count + count, count)
-            
-            cache[(count, paste)] = min(res1, res2)
-            return cache[(count, paste)]
+        # time: O{n^2}, space: O{n} --->>> DP
+        dp = [1000] * (n+1)
+        dp[1] = 0
         
-        if n == 1:
-            return 0
+        for i in range(2, n+1):
+            for j in range(1, (i//2)+1):
+                if i%j == 0:
+                    dp[i] = min(dp[i], dp[j] + i//j)
         
-        return 1 + helper(1,1)
+        return dp[n]

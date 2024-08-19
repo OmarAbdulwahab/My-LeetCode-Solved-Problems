@@ -1,6 +1,6 @@
 class Solution:
     def minSteps(self, n: int) -> int:
-        
+        # time: O{n^2}, space: O{n^2}
         cache = {}
         def helper(count, paste):
             if count == n:

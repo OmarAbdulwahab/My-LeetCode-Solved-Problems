@@ -1,20 +1,21 @@
 class Solution {
 public:
     int countConsistentStrings(string allowed, vector<string>& words) {
-        int ans=0;
         map<char,int>mp;
-        for(int i=0;i<allowed.size();i++)mp[allowed[i]]++;
-        for(int i=0;i<words.size();i++){
-            bool consistent = true;
-            for(int j=0;j<words[i].size();j++){
-                if(mp[words[i][j]]!=1){
-                    consistent = false;
-                    break;
+        for(char c:allowed)mp[c]++;
+        
+        int ans=0;
+        
+        for(int i=0; i<words.size(); i++){
+            int found=1;
+            for(int j=0; j<words[i].size(); j++){
+                if(mp[words[i][j]]<1){
+                    found=0;
+                    continue;
                 }
             }
-            ans+= consistent?1:0;
+            ans+=found;
         }
-        
         
         return ans;
     }

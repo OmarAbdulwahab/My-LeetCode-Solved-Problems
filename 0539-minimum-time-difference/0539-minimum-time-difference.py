@@ -18,6 +18,9 @@ class Solution:
             diff = cur - prev
             res = min(res, diff)
             
+            if res == 0:
+                return 0 # the best you can do is 0 , so return it immediately
+            
             
         return res
         

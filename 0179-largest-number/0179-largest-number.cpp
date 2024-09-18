@@ -1,21 +1,20 @@
-bool compare(string a,string b){
-    return a+b > b+a;
-}
+bool compare(string a, string b){
+        return a + b > b + a;
+    }
 
 class Solution {
 public:
     string largestNumber(vector<int>& nums) {
-	
-        vector<string> container;
-		
-        for(int i : nums)  container.push_back(to_string(i));
+        vector<string> string_nums;
+        for(int n:nums)
+            string_nums.push_back(to_string(n));
         
-        sort(container.begin(),container.end(),compare);
+        sort(begin(string_nums), end(string_nums), compare);
         
-        string result;
+        string ans;
+        for(string s: string_nums)
+            ans+= s;
         
-        for(int i=0;i<container.size();i++)  result+=container[i];
-        
-        return result[0]=='0'? "0" : result;
+        return ans[0]=='0'? "0": ans;
     }
 };

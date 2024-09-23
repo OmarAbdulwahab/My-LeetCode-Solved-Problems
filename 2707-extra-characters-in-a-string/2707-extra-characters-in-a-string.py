@@ -1,6 +1,6 @@
 class Solution:
     def minExtraChar(self, s: str, dictionary: List[str]) -> int:
-        # DP
+        # DP: time n^3
         words = set(dictionary)
         dp = {}
         

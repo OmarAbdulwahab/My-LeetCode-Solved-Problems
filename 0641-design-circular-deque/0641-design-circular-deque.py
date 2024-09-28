@@ -4,7 +4,7 @@ class MyCircularDeque:
         # left is inclusive, right is exclusive
         self.left = 0
         self.right = 0
-        self.arr = [None] * (k+2)
+        self.arr = [None] * (k)
         self.k = k
 
     def insertFront(self, value: int) -> bool:
